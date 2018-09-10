@@ -1,0 +1,156 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+
+<link href="assets/css/css/bootstrap.min.css" rel="stylesheet">
+<link href="assets/bootstrap-daterangepicker/daterangepicker.css"
+	rel="stylesheet">
+<link
+	href="assets/vendors/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css"
+	rel="stylesheet">
+
+</head>
+<body>
+
+	<!-- Left Panel -->
+	<aside th:replace="/layout :: left-panel"></aside>
+	<!-- Left Panel -->
+
+	<!-- Right Panel -->
+	<div id="right-panel" class="right-panel">
+		<!-- Header-->
+		<header th:replace="/layout :: header"></header>
+		<!-- Header-->
+
+		<div class="breadcrumbs">
+			<div class="col-sm-4">
+				<div class="page-header float-left">
+					<div class="page-title">
+						<h1>Crear Elecciones</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	<div class="content mt-3">
+			<div class="col-sm-12">
+				<div class="alert  alert-success alert-dismissible fade show"
+					role="alert">
+					<span class="badge badge-pill badge-success">Success</span> You
+					successfully read this important alert message.
+					<button type="button" class="close" data-dismiss="alert"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+			</div>
+		</div>
+		
+				
+		
+
+
+		<div class="content mt-3">
+			<div class="animated fadeIn">
+				<div class="row">
+					<div class="col-lg-9">
+						<div class="card">
+							<div class="card-header">
+								<strong>Nueva Votación</strong>
+							</div>
+							<div class="card-body card-block">
+							
+							
+								<form form th:action="@{/create-voting}" th:object="${voting}" method="post" enctype="multipart/form-data"
+									class="form-horizontal">
+
+									<div class="row form-group">
+										<div class="col col-md-3">
+											<label for="text-input" class=" form-control-label">Descripción</label>
+										</div>
+										<div class="col-12 col-md-9">
+											<input type="text" th:field="*{description}" 
+												th:errorclass="'form-control alert-danger'"
+												placeholder="Ingrese la descripción de la nueva Elección..." class="form-control"><small
+												class="form-text text-muted"
+												th:if="${#fields.hasErrors('description')}" th:errors="*{description}">Votaciones</small>
+										</div>
+									</div>
+
+
+
+
+									<div class="row form-group">
+										<div class="col col-md-3">
+											<label for="textarea-input" class=" form-control-label">Observaciones</label>
+										</div>
+										<div class="col-12 col-md-9">
+											<textarea th:field="*{remarks}" name="textarea-input" id="textarea-input" rows="3"
+												placeholder="Remarks" class="form-control"></textarea>
+										</div>
+									</div>
+
+
+									
+									<div class="row form-group">
+										<div class="col col-md-3">
+											<label class=" form-control-label">Fechas</label>
+										</div>
+										<div class="col col-md-9">
+											<div class="control-group">
+												<div class="controls">
+													<div class="input-prepend input-group">
+														<span class="add-on input-group-addon"><i
+															class="glyphicon glyphicon-calendar fa fa-calendar"></i></span>
+														<input th:field="*{stringDate}"  type="text" name="reservation-time"
+															id="reservation-time" class="form-control"
+															value="01/01/2016 - 01/25/2016" />
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="card-footer">
+								<button type="submit" class="btn btn-primary btn-sm">
+									<i class="fa fa-dot-circle-o"></i> Guardar
+								</button>
+								<button type="reset" class="btn btn-danger btn-sm">
+									<i class="fa fa-ban"></i> Cancelar
+								</button>
+							</div>
+
+								</form>
+							</div>
+							
+							
+							
+							
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- .animated -->
+		</div>
+		<!-- .content -->
+	</div>
+	<!-- /#right-panel -->
+	<!-- Right Panel -->
+
+
+	<footer th:replace="/layout :: footer"></footer>
+
+	<script src="assets/jquery/dist/jquery.min.js"></script>
+	<script src="assets/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="assets/moment/min/moment.min.js"></script>
+	<script src="assets/bootstrap-daterangepicker/daterangepicker.js"></script>
+	<script
+		src="assets/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+	<script src="assets/build/js/custom.min.js"></script>
+
+
+
+
+
+
+</body>
+</html>
